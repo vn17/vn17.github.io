@@ -5,7 +5,7 @@ const meta = {
 };
 
 const introdata = {
-    title: "I’m John Doe",
+    title: "I’m Vyshakh",
     animated: {
         first: "I love coding",
         second: "I code cool websites",
