@@ -1,7 +1,7 @@
-const logotext = "JOHN";
+const logotext = "Vyshakh";
 const meta = {
-    title: "John Doe",
-    description: "I’m John Doe data scientist _ Full stack devloper,currently working in Berlin",
+    title: "Vyshakh Nambiar",
+    description: "I’m Vyshakh Nambiar data scientist _ Full stack devloper,currently working in Berlin",
 };
 
 const introdata = {
