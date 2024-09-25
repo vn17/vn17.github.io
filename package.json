@@ -30,6 +30,7 @@
             "react-app/jest"
         ]
     },
+    "homepage": "https://vn17.github.io",
     "browserslist": {
         "production": [
             ">0.2%",
