@@ -25,15 +25,29 @@ export const Home = () => {
                 <h2 className="mb-1x">{introdata.title}</h2>
                 <h1 className="fluidz-48 mb-1x">
                   <Typewriter
+                    onInit={(typewriter) => {
+                      typewriter.typeString('I\'m a Principal Engineer')
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .typeString('I work at Microsoft')
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .typeString('I\'ve worked at Amazon')
+                        .pauseFor(1000)
+                        .deleteChars(6)
+                        .typeString('AWS')
+                        .pauseFor(1000)
+                        .deleteChars(3)
+                        .typeString('Morgan Stanley')
+                        .pauseFor(1000)
+                        .deleteChars(14)
+                        .typeString('Zillow')
+                        .pauseFor(1000)
+                        .deleteAll()
+                        .start();
+                    }}
                     options={{
-                      strings: [
-                        introdata.animated.first,
-                        introdata.animated.second,
-                        introdata.animated.third,
-                      ],
-                      autoStart: true,
-                      loop: true,
-                      deleteSpeed: 10,
+                      loop: true, // Enable looping
                     }}
                   />
                 </h1>

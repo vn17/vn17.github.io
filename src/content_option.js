@@ -6,11 +6,13 @@ const meta = {
 
 const introdata = {
     title: "Hi, I’m Vyshakh.",
-    animated: {
-        first: "I love coding",
-        second: "I code cool websites",
-        third: "I develop mobile apps",
-    },
+    animated: [
+        "Amazon",
+        "AWS",
+        "Morgan Stanley",
+        "Microsoft",
+        "Zillow",
+    ],
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
     your_img_url: "https://github.com/vn17/vn17.github.io/blob/master/src/assets/images/IMG_8582.JPG?raw=true",
 };
