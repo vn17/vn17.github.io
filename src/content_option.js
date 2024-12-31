@@ -13,7 +13,7 @@ const introdata = {
         "Microsoft",
         "Zillow",
     ],
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
+    description: "I’m a Principal Software Engineer with a decade of experience in software development, architecture, and team leadership. I specialize in cloud computing, microservices architecture, full-stack development, AI/ML, and have a passion for creating scalable, high-performance solutions that address complex challenges. In my career, I’ve had the privilege of leading cross-functional teams to deliver innovative software systems while mentoring engineers and fostering a collaborative, growth-oriented environment. I take pride in designing and implementing critical projects, ensuring best practices, and bridging the gap between technical and business teams to align engineering efforts with organizational goals. I’m always excited to explore emerging technologies and find ways to improve user experiences. Outside of tech, I enjoy value investing, hiking, table tennis, soccer, and chess.",
     your_img_url: "https://github.com/vn17/vn17.github.io/blob/master/src/assets/images/IMG_8582.JPG?raw=true",
 };
 

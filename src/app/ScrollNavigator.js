@@ -5,7 +5,7 @@ const ScrollNavigator = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const routes = ["/", "/about", "/portfolio", "/contact"]; // Define the order of routes
+  const routes = ["/", "/about", "/career", "/contact"]; // Define the order of routes
   const currentIndex = routes.indexOf(location.pathname); // Find current route index
 
   useEffect(() => {
