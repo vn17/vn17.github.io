@@ -30,10 +30,10 @@ export const ContactUs = () => {
 
     emailjs
       .send(
-        contactConfig.YOUR_SERVICE_ID,
-        contactConfig.YOUR_TEMPLATE_ID,
+        process.env.REACT_APP_EMAILJS_SERVICE_ID, // Use env variable
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Use env variable
         templateParams,
-        contactConfig.YOUR_USER_ID
+        process.env.REACT_APP_EMAILJS_USER_ID // Use env variable
       )
       .then(
         (result) => {
@@ -95,21 +95,24 @@ export const ContactUs = () => {
           <Col lg="5" className="mb-5">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
-              <strong>Email:</strong>{" "}
+              {/* <strong>Email:</strong>{" "}
               <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
                 {contactConfig.YOUR_EMAIL}
-              </a>
-              <br />
-              <br />
-              {contactConfig.hasOwnProperty("YOUR_FONE") ? (
+              </a> */}
+              {/* <br />
+              <br /> */}
+              {contactConfig.hasOwnProperty("YOUR_LINKEDIN") ? (
                 <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
-                </p>
+                <strong>LinkedIn: </strong>  
+                <a href={contactConfig.YOUR_LINKEDIN} target="_blank" rel="noopener noreferrer">
+                  {contactConfig.YOUR_LINKEDIN}
+                </a>
+              </p>
               ) : (
                 ""
               )}
             </address>
-            <p>{contactConfig.description}</p>
+            {/* <p>{contactConfig.description}</p> */}
           </Col>
           <Col lg="7" className="d-flex align-items-center">
             <form onSubmit={handleSubmit} className="contact__form w-100">
