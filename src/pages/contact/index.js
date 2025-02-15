@@ -33,14 +33,14 @@ export const ContactUs = () => {
         process.env.REACT_APP_EMAILJS_SERVICE_ID, // Use env variable
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Use env variable
         templateParams,
-        // process.env.REACT_APP_EMAILJS_USER_ID // Use env variable
+        process.env.REACT_APP_EMAILJS_USER_ID // Use env variable
       )
       .then(
         (result) => {
           console.log(result.text);
           setFormdata({
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
+            alertmessage: "SUCCESS! Thank you for your message. I will look at your email and get back in a few days.",
             variant: "success",
             show: true,
           });
