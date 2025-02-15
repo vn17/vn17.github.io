@@ -138,6 +138,7 @@ const dataportfolio = [{
 ];
 
 const contactConfig = {
+    YOUR_NAME: "Vyshakh",
     YOUR_EMAIL: "name@domain.com",
     YOUR_FONE: "(555)123-4567",
     YOUR_LINKEDIN: "https://www.linkedin.com/in/vyshakh-nambiar/",

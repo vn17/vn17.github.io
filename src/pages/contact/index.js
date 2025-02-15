@@ -24,7 +24,7 @@ export const ContactUs = () => {
     const templateParams = {
       from_name: formData.email,
       user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
+      to_name: contactConfig.YOUR_NAME,
       message: formData.message,
     };
 
@@ -33,7 +33,7 @@ export const ContactUs = () => {
         process.env.REACT_APP_EMAILJS_SERVICE_ID, // Use env variable
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Use env variable
         templateParams,
-        process.env.REACT_APP_EMAILJS_USER_ID // Use env variable
+        // process.env.REACT_APP_EMAILJS_USER_ID // Use env variable
       )
       .then(
         (result) => {
