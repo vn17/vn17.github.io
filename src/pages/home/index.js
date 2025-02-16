@@ -51,7 +51,16 @@ export const Home = () => {
                   />
                 </h1>
                 <p className="mb-1x">{introdata.description}</p>
-                <div className="intro_btn-action pb-5">
+                <div className="intro_btn-action pb-5">              
+                  {/* New button to navigate to /chat */}
+                  <Link to="/chat">
+                    <div id="button_h" className="ac_btn btn">
+                      Chat with my AI
+                      <div className="ring one"></div>
+                      <div className="ring two"></div>
+                      <div className="ring three"></div>
+                    </div>
+                  </Link>
                   <Link to="/contact">
                     <div id="button_h" className="ac_btn btn">
                       Contact Me

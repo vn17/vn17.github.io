@@ -58,6 +58,11 @@ const Chat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Call scrollToBottom when a new message is added
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]); // Trigger when the messages state changes
+
   return (
     <>
       {/* Messages are now outside the chat-container */}
@@ -80,7 +85,7 @@ const Chat = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown} // Listen for the Enter key
-              placeholder="Ask a question..."
+              placeholder="Ask my AI a question about me..."
             />
             <button onClick={handleSendMessage} disabled={loading}>
               {loading ? 'Thinking...' : 'Send'}

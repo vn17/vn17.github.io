@@ -39,7 +39,8 @@ html, body {
     flex-grow: 1; /* Allows messages to fill available space */
     overflow: auto; /* Enables scrolling of messages as part of the page */
     margin-bottom: 80px; /* Keeps space for the input box */
-    height: calc(100vh - 80px); /* Ensures it fits above the input area */
+    margin-top: 80px; /* Keeps space for the input box */
+    height: calc(100vh - 200px); /* Ensures it fits above the input area */
     box-sizing: border-box;
   }
   
