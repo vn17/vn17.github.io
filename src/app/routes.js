@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import withRouter from "../hooks/withRouter"
+import withRouter from "../hooks/withRouter";
 import { Home } from "../pages/home";
 import { Career } from "../pages/career";
 import { ContactUs } from "../pages/contact";
@@ -8,6 +8,9 @@ import { About } from "../pages/about";
 import { Socialicons } from "../components/socialicons";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ScrollNavigator from "./ScrollNavigator";
+
+// Import your Chat component here
+import Chat from "../pages/chat";
 
 const AnimatedRoutes = withRouter(({ location }) => (
   <TransitionGroup>
@@ -24,6 +27,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
         <Route exact path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/career" element={<Career />} /> */}
+        <Route path="/chat" element={<Chat />} /> {/* Add the Chat route */}
         <Route path="/contact" element={<ContactUs />} />
         <Route path="*" element={<Home />} />
       </Routes>
@@ -34,7 +38,7 @@ const AnimatedRoutes = withRouter(({ location }) => (
 function AppRoutes() {
   return (
     <div className="s_c">
-      <ScrollNavigator />
+      {/* <ScrollNavigator /> */}
       <AnimatedRoutes />
       {/* <Socialicons /> */}
     </div>
