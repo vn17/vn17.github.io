@@ -4,18 +4,11 @@ const API_KEY = process.env.OPENROUTER_API_KEY; // Replace with your OpenRouter 
 
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions'; // OpenRouter endpoint
 
-// Function to load the model when the worker starts
-const loadModel = async () => {
-  console.log("Loading model...");
-  console.log("Model loaded.");
-};
 
 // Handle messages from the main thread
 const processMessage = async (message) => {
   const { input } = message.data;
   const resumeText = process.env.REACT_APP_RESUME;
-
-  await loadModel();
 
   const messages = [
     {
