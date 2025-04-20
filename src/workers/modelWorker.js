@@ -1,25 +1,53 @@
-import { pipeline } from "@huggingface/transformers";
+import axios from 'axios';
 
-// Create a reference to the model
-let textGenModelRef = null;
+const API_KEY = process.env.OPENROUTER_API_KEY; // Replace with your OpenRouter API key from environment variable
+
+const API_URL = 'https://openrouter.ai/api/v1/chat/completions'; // OpenRouter endpoint
 
 // Function to load the model when the worker starts
 const loadModel = async () => {
-  if (!textGenModelRef) {
-    textGenModelRef = await pipeline("text2text-generation", "Xenova/LaMini-Flan-T5-783M");
-  }
+  console.log("Loading model...");
+  console.log("Model loaded.");
 };
 
 // Handle messages from the main thread
 const processMessage = async (message) => {
-  const { input, resumeText } = message.data;
-  await loadModel(); // Load the model if it's not loaded yet
+  const { input } = message.data;
+  const resumeText = process.env.REACT_APP_RESUME;
 
-  const prompt = `You are given my resume: "${resumeText}". Answer the question: "${input}". Always respond in first person (using 'I'). If the user posts a greeting like hi or hello, respond with a nice greeting.`;
-  const result = await textGenModelRef(prompt, { max_length: 150 });
+  await loadModel();
 
-  // Send the result back to the main thread
-  postMessage({ result: result[0]?.generated_text || "I'm sorry, I couldn't answer that." });
+  const messages = [
+    {
+      role: 'system',
+      content: `Pretend to be Vyshakh and answer questions about yourself based on Vyshakh's details:\n\n${resumeText}.`,
+    },
+    {
+      role: 'user',
+      content: input,
+    }
+  ];
+
+  try {
+    const response = await axios.post(
+      API_URL,
+      {
+        model: 'meta-llama/llama-4-maverick:free',
+        messages,
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    postMessage({ result: response.data.choices[0]?.message?.content || "Sorry, I couldn't generate a response." });
+  } catch (error) {
+    console.error("Error calling OpenRouter API:", error);
+    postMessage({ result: "Sorry, there was an error processing your request." });
+  }
 };
 
 // Listen for incoming messages
