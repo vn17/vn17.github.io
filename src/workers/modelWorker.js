@@ -2,11 +2,10 @@ import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions'; // OpenRouter endpoint
-
 // Handle messages from the main thread
 const processMessage = async (message) => {
   const { input } = message.data;
-  const resumeText = process.env.REACT_APP_RESUME_1;
+  const resumeText = process.env.REACT_APP_RESUME;
 
   const messages = [
     {
