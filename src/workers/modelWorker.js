@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
-const API_URL = 'https://openrouter.ai/api/v1/chat/completions'; // OpenRouter endpoint
+const API_URL = 'https://nodejs-serverless-function-express-eight-weld.vercel.app/api/chat'; // Your Vercel endpoint
+
 // Handle messages from the main thread
 const processMessage = async (message) => {
   const { input } = message.data;
@@ -19,23 +19,22 @@ const processMessage = async (message) => {
   ];
 
   try {
+    // Send request to your Vercel API endpoint instead of OpenRouter
     const response = await axios.post(
       API_URL,
       {
-        model: 'meta-llama/llama-4-maverick:free',
-        messages,
+        input: input,
       },
       {
         headers: {
-          'Authorization': `Bearer ${API_KEY}`,
           'Content-Type': 'application/json',
         },
       }
     );
 
-    postMessage({ result: response.data.choices[0]?.message?.content || "Sorry, I couldn't generate a response." });
+    postMessage({ result: response.data.result || "Sorry, I couldn't generate a response." });
   } catch (error) {
-    console.error("Error calling OpenRouter API:", error);
+    console.error("Error calling Vercel API:", error);
     postMessage({ result: "Sorry, there was an error processing your request." });
   }
 };
