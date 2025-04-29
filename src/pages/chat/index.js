@@ -32,14 +32,17 @@ const Chat = () => {
     if (input.trim() === '') return;
 
     // Add the user's message to the chat
-    setMessages(prevMessages => [...prevMessages, { text: input, sender: 'user' }]);
+    setMessages(prevMessages => {
+      const updatedMessages = [...prevMessages, { text: input, sender: 'user' }];
+      
+      // Send the user's input and the chat history to the worker for processing
+      workerRef.current.postMessage({ input, prevMessages: updatedMessages });
+      
+      return updatedMessages;
+    });
+
     setInput(''); // Clear the input field
     setLoading(true); // Set loading state
-
-    const resumeText = process.env.REACT_APP_RESUME;
-
-    // Send the user's input and resume text to the worker for processing
-    workerRef.current.postMessage({ input, resumeText });
 
     // Scroll to the latest message
     scrollToBottom();
